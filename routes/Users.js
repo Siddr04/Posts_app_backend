@@ -107,7 +107,7 @@ router.put("/changeUsername", validateToken, (req, res) => {
 
 
 router.get("/auth", validateToken, (req, res) => {
-  res.json({
+  res.send({
     id: req.body.id,
     username: req.body.Username.trim(),
   });

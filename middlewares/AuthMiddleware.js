@@ -5,7 +5,7 @@ const validateToken=((req,res,next)=>{
     const accessToken=req.header("accessToken");
     // const givenUsername=req.body.Username.trim();
     // console.log(req.body.Username);
-    if(!accessToken){return res.json({error:"Please Login first!"});}
+    if(!accessToken){return res.send({error:"Please Login first!"});}
     try{
         const validToken=jwt.verify(accessToken,"UseraccessToken");
         if(validToken)
