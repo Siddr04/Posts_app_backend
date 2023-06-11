@@ -1,11 +1,13 @@
 const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql");
+const dotenv=require('dotenv');
+dotenv.config();
 const db=mysql.createPool({
-  host:'localhost',
-  user:'root',
-  password:'',
-  database:'Posts_app'
+    host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD === 'none' ? '' : process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE
 })
 const validateToken = require("../middlewares/AuthMiddleware");
 
