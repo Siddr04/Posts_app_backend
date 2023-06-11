@@ -2,12 +2,14 @@ const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql");
 const bcrypt = require("bcrypt-updated");
-const db = mysql.createPool({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "Posts_app",
-});
+const dotenv=require('dotenv');
+dotenv.config();
+const db=mysql.createPool({
+    host:process.env.DB_HOST,
+    user:process.env.DB_USER,
+    password:process.env.DB_PASSWORD,
+    database:process.env.DB_DATABASE
+})
 
 const { sign } = require("jsonwebtoken");
 const validateToken = require("../middlewares/AuthMiddleware");
