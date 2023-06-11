@@ -104,8 +104,13 @@ router.put("/changeUsername", validateToken, (req, res) => {
     }
   });
 });
+
+
 router.get("/auth", validateToken, (req, res) => {
-  res.json(req.body);
+  res.json({
+    id: req.body.id,
+    username: req.body.Username.trim(),
+  });
 });
 
 module.exports = router;
