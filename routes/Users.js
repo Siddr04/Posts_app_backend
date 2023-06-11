@@ -2,13 +2,11 @@ const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql");
 const bcrypt = require("bcrypt-updated");
-const dotenv=require('dotenv');
-dotenv.config();
 const db=mysql.createPool({
-    host:process.env.DB_HOST,
-    user:process.env.DB_USER,
-    password:'',
-    database:process.env.DB_DATABASE
+  host:'localhost',
+  user:'root',
+  password:'',
+  database:'Posts_app'
 })
 
 const { sign } = require("jsonwebtoken");
